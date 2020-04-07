@@ -1,0 +1,743 @@
+{
+  "routes": [
+    {
+      "geometry": {
+        "coordinates": [
+          [6.164048, 52.26136],
+          [6.158803, 52.259051],
+          [6.157572, 52.259644],
+          [6.15683, 52.259781],
+          [6.155505, 52.259812],
+          [6.155114, 52.260154],
+          [6.15479, 52.260022],
+          [6.154393, 52.259502],
+          [6.153598, 52.259457],
+          [6.152565, 52.259222],
+          [6.149836, 52.258231],
+          [6.149416, 52.258151],
+          [6.149231, 52.258248],
+          [6.148999, 52.25821],
+          [6.148951, 52.258012],
+          [6.149292, 52.257951],
+          [6.149759, 52.257622],
+          [6.149241, 52.257448],
+          [6.14707, 52.256198],
+          [6.141968, 52.252725],
+          [6.139285, 52.250662],
+          [6.140487, 52.248256]
+        ],
+        "type": "LineString"
+      },
+      "legs": [
+        {
+          "summary": "Smyrnastraat, Hovenpad",
+          "weight": 694.5,
+          "duration": 766.8,
+          "steps": [
+            {
+              "intersections": [
+                {
+                  "out": 0,
+                  "entry": [true],
+                  "bearings": [235],
+                  "location": [6.164048, 52.26136]
+                },
+                {
+                  "out": 2,
+                  "in": 0,
+                  "entry": [false, true, true, true],
+                  "bearings": [60, 135, 240, 330],
+                  "location": [6.163988, 52.261334]
+                }
+              ],
+              "driving_side": "right",
+              "geometry": {
+                "coordinates": [
+                  [6.164048, 52.26136],
+                  [6.163988, 52.261334],
+                  [6.16374, 52.26123],
+                  [6.1632, 52.261],
+                  [6.162399, 52.260624]
+                ],
+                "type": "LineString"
+              },
+              "mode": "cycling",
+              "maneuver": {
+                "bearing_after": 235,
+                "bearing_before": 0,
+                "location": [6.164048, 52.26136],
+                "type": "depart",
+                "instruction": "Head southwest on Smyrnastraat"
+              },
+              "weight": 33.300000000000004,
+              "duration": 41.8,
+              "name": "Smyrnastraat",
+              "distance": 139
+            },
+            {
+              "intersections": [
+                {
+                  "out": 2,
+                  "in": 0,
+                  "entry": [false, true, true],
+                  "bearings": [60, 150, 240],
+                  "location": [6.162399, 52.260624]
+                },
+                {
+                  "out": 1,
+                  "in": 0,
+                  "entry": [false, true, true],
+                  "bearings": [60, 240, 330],
+                  "location": [6.161701, 52.26034]
+                },
+                {
+                  "out": 2,
+                  "in": 0,
+                  "entry": [false, true, true],
+                  "bearings": [60, 150, 240],
+                  "location": [6.160789, 52.259936]
+                },
+                {
+                  "out": 2,
+                  "in": 0,
+                  "entry": [false, true, true, true],
+                  "bearings": [60, 165, 240, 330],
+                  "location": [6.158995, 52.259136]
+                }
+              ],
+              "driving_side": "right",
+              "geometry": {
+                "coordinates": [
+                  [6.162399, 52.260624],
+                  [6.162139, 52.260512],
+                  [6.16211, 52.260532],
+                  [6.161701, 52.26034],
+                  [6.160789, 52.259936],
+                  [6.158995, 52.259136],
+                  [6.158803, 52.259051]
+                ],
+                "type": "LineString"
+              },
+              "mode": "cycling",
+              "maneuver": {
+                "bearing_after": 234,
+                "bearing_before": 232,
+                "location": [6.162399, 52.260624],
+                "modifier": "straight",
+                "type": "turn",
+                "instruction": "Go straight onto Smyrnastraat"
+              },
+              "weight": 75.8,
+              "duration": 92.2,
+              "name": "Smyrnastraat",
+              "distance": 303.6
+            },
+            {
+              "intersections": [
+                {
+                  "out": 2,
+                  "in": 0,
+                  "entry": [false, true, true],
+                  "bearings": [60, 135, 315],
+                  "location": [6.158803, 52.259051]
+                }
+              ],
+              "driving_side": "right",
+              "geometry": {
+                "coordinates": [
+                  [6.158803, 52.259051],
+                  [6.157572, 52.259644]
+                ],
+                "type": "LineString"
+              },
+              "mode": "cycling",
+              "maneuver": {
+                "bearing_after": 307,
+                "bearing_before": 233,
+                "location": [6.158803, 52.259051],
+                "modifier": "right",
+                "type": "end of road",
+                "instruction": "Turn right onto Diepenveenseweg"
+              },
+              "weight": 27.9,
+              "duration": 27.9,
+              "name": "Diepenveenseweg",
+              "distance": 106.6
+            },
+            {
+              "intersections": [
+                {
+                  "out": 1,
+                  "in": 0,
+                  "entry": [false, true, true],
+                  "bearings": [135, 255, 345],
+                  "location": [6.157572, 52.259644]
+                }
+              ],
+              "driving_side": "right",
+              "geometry": {
+                "coordinates": [
+                  [6.157572, 52.259644],
+                  [6.157444, 52.259628],
+                  [6.157401, 52.259636],
+                  [6.157101, 52.259733],
+                  [6.157052, 52.259731],
+                  [6.156947, 52.259696],
+                  [6.156913, 52.259698],
+                  [6.156889, 52.259706],
+                  [6.15683, 52.259781]
+                ],
+                "type": "LineString"
+              },
+              "mode": "cycling",
+              "maneuver": {
+                "bearing_after": 260,
+                "bearing_before": 307,
+                "location": [6.157572, 52.259644],
+                "modifier": "left",
+                "type": "turn",
+                "instruction": "Turn left onto Diepenveenseweg"
+              },
+              "weight": 18,
+              "duration": 25.2,
+              "name": "Diepenveenseweg",
+              "distance": 60
+            },
+            {
+              "intersections": [
+                {
+                  "out": 2,
+                  "in": 1,
+                  "entry": [true, false, true],
+                  "bearings": [75, 150, 270],
+                  "location": [6.15683, 52.259781]
+                },
+                {
+                  "out": 1,
+                  "in": 0,
+                  "entry": [false, true, true],
+                  "bearings": [90, 270, 330],
+                  "location": [6.156147, 52.259799]
+                }
+              ],
+              "driving_side": "right",
+              "geometry": {
+                "coordinates": [
+                  [6.15683, 52.259781],
+                  [6.156147, 52.259799],
+                  [6.155564, 52.259813]
+                ],
+                "type": "LineString"
+              },
+              "mode": "cycling",
+              "maneuver": {
+                "bearing_after": 271,
+                "bearing_before": 331,
+                "location": [6.15683, 52.259781],
+                "modifier": "left",
+                "type": "turn",
+                "instruction": "Turn left onto Schurenstraat"
+              },
+              "weight": 21.1,
+              "duration": 21.1,
+              "name": "Schurenstraat",
+              "distance": 86.3
+            },
+            {
+              "intersections": [
+                {
+                  "out": 2,
+                  "in": 1,
+                  "entry": [true, false, true],
+                  "bearings": [60, 90, 300],
+                  "location": [6.155564, 52.259813]
+                },
+                {
+                  "out": 3,
+                  "in": 1,
+                  "entry": [true, false, true, true],
+                  "bearings": [60, 150, 240, 330],
+                  "location": [6.155179, 52.260098]
+                }
+              ],
+              "driving_side": "right",
+              "geometry": {
+                "coordinates": [
+                  [6.155564, 52.259813],
+                  [6.155505, 52.259812],
+                  [6.155179, 52.260098],
+                  [6.155114, 52.260154]
+                ],
+                "type": "LineString"
+              },
+              "mode": "cycling",
+              "maneuver": {
+                "bearing_after": 302,
+                "bearing_before": 271,
+                "location": [6.155564, 52.259813],
+                "modifier": "slight right",
+                "type": "turn",
+                "instruction": "Make a slight right onto Schurenstraat"
+              },
+              "weight": 19.9,
+              "duration": 26,
+              "name": "Schurenstraat",
+              "distance": 50.4
+            },
+            {
+              "intersections": [
+                {
+                  "out": 2,
+                  "in": 1,
+                  "entry": [true, false, true],
+                  "bearings": [60, 150, 240],
+                  "location": [6.155114, 52.260154]
+                },
+                {
+                  "out": 2,
+                  "in": 0,
+                  "entry": [false, true, true, true],
+                  "bearings": [30, 60, 210, 300],
+                  "location": [6.15474, 52.25996]
+                },
+                {
+                  "out": 1,
+                  "in": 0,
+                  "entry": [false, true, true],
+                  "bearings": [30, 180, 300],
+                  "location": [6.154427, 52.259677]
+                }
+              ],
+              "driving_side": "right",
+              "geometry": {
+                "coordinates": [
+                  [6.155114, 52.260154],
+                  [6.154861, 52.260055],
+                  [6.15479, 52.260022],
+                  [6.15474, 52.25996],
+                  [6.154617, 52.259848],
+                  [6.154453, 52.259708],
+                  [6.154427, 52.259677],
+                  [6.154392, 52.259586],
+                  [6.154393, 52.259502]
+                ],
+                "type": "LineString"
+              },
+              "mode": "cycling",
+              "maneuver": {
+                "bearing_after": 236,
+                "bearing_before": 323,
+                "location": [6.155114, 52.260154],
+                "modifier": "left",
+                "type": "end of road",
+                "instruction": "Turn left onto Hoge Hondstraat"
+              },
+              "weight": 29.599999999999998,
+              "duration": 30.7,
+              "name": "Hoge Hondstraat",
+              "distance": 92
+            },
+            {
+              "intersections": [
+                {
+                  "out": 2,
+                  "in": 0,
+                  "entry": [false, true, true],
+                  "bearings": [0, 180, 270],
+                  "location": [6.154393, 52.259502]
+                },
+                {
+                  "out": 1,
+                  "in": 0,
+                  "entry": [false, true, true],
+                  "bearings": [75, 255, 345],
+                  "location": [6.15313, 52.259361]
+                },
+                {
+                  "out": 1,
+                  "in": 0,
+                  "entry": [false, true, true],
+                  "bearings": [75, 240, 330],
+                  "location": [6.152565, 52.259222]
+                },
+                {
+                  "out": 1,
+                  "in": 0,
+                  "entry": [false, true, true],
+                  "bearings": [60, 240, 315],
+                  "location": [6.1513, 52.25879]
+                },
+                {
+                  "out": 2,
+                  "in": 1,
+                  "entry": [true, false, true],
+                  "bearings": [0, 60, 240],
+                  "location": [6.150319, 52.2584]
+                },
+                {
+                  "out": 2,
+                  "in": 1,
+                  "entry": [true, false, true],
+                  "bearings": [0, 75, 255],
+                  "location": [6.149556, 52.258179]
+                }
+              ],
+              "driving_side": "right",
+              "geometry": {
+                "coordinates": [
+                  [6.154393, 52.259502],
+                  [6.153883, 52.25949],
+                  [6.153598, 52.259457],
+                  [6.15313, 52.259361],
+                  [6.152565, 52.259222],
+                  [6.1513, 52.25879],
+                  [6.150319, 52.2584],
+                  [6.149931, 52.258255],
+                  [6.149836, 52.258231],
+                  [6.149691, 52.258205],
+                  [6.149556, 52.258179],
+                  [6.149416, 52.258151]
+                ],
+                "type": "LineString"
+              },
+              "mode": "cycling",
+              "maneuver": {
+                "bearing_after": 267,
+                "bearing_before": 185,
+                "location": [6.154393, 52.259502],
+                "modifier": "right",
+                "type": "turn",
+                "instruction": "Turn right onto Rijsterborgherweg"
+              },
+              "weight": 92.60000000000002,
+              "duration": 92.60000000000002,
+              "name": "Rijsterborgherweg",
+              "distance": 375.7
+            },
+            {
+              "intersections": [
+                {
+                  "out": 3,
+                  "in": 0,
+                  "entry": [false, true, true, true],
+                  "bearings": [75, 180, 255, 315],
+                  "location": [6.149416, 52.258151]
+                },
+                {
+                  "out": 2,
+                  "in": 0,
+                  "entry": [false, true, true, true],
+                  "bearings": [75, 150, 225, 330],
+                  "location": [6.149042, 52.258229]
+                },
+                {
+                  "out": 1,
+                  "in": 3,
+                  "entry": [true, true, true, false],
+                  "bearings": [45, 120, 225, 330],
+                  "location": [6.149001, 52.257975]
+                }
+              ],
+              "driving_side": "right",
+              "geometry": {
+                "coordinates": [
+                  [6.149416, 52.258151],
+                  [6.149386, 52.258185],
+                  [6.149343, 52.258214],
+                  [6.149291, 52.258235],
+                  [6.149231, 52.258248],
+                  [6.149168, 52.258252],
+                  [6.149106, 52.258246],
+                  [6.149042, 52.258229],
+                  [6.148999, 52.25821],
+                  [6.14896, 52.258183],
+                  [6.148933, 52.258151],
+                  [6.148917, 52.258116],
+                  [6.148915, 52.25808],
+                  [6.148927, 52.258045],
+                  [6.148951, 52.258012],
+                  [6.149001, 52.257975],
+                  [6.149029, 52.257961],
+                  [6.149077, 52.257945],
+                  [6.149131, 52.257936],
+                  [6.149186, 52.257934],
+                  [6.14924, 52.257939],
+                  [6.149292, 52.257951]
+                ],
+                "type": "LineString"
+              },
+              "mode": "cycling",
+              "maneuver": {
+                "bearing_after": 320,
+                "bearing_before": 251,
+                "location": [6.149416, 52.258151],
+                "modifier": "right",
+                "type": "turn",
+                "instruction": "Turn right onto Noorderplein"
+              },
+              "weight": 24.299999999999997,
+              "duration": 24.299999999999997,
+              "name": "Noorderplein",
+              "distance": 84.8
+            },
+            {
+              "intersections": [
+                {
+                  "out": 1,
+                  "in": 2,
+                  "entry": [true, true, false],
+                  "bearings": [60, 135, 255],
+                  "location": [6.149292, 52.257951]
+                }
+              ],
+              "driving_side": "right",
+              "geometry": {
+                "coordinates": [
+                  [6.149292, 52.257951],
+                  [6.149759, 52.257622]
+                ],
+                "type": "LineString"
+              },
+              "mode": "cycling",
+              "maneuver": {
+                "bearing_after": 137,
+                "bearing_before": 78,
+                "location": [6.149292, 52.257951],
+                "modifier": "right",
+                "type": "turn",
+                "instruction": "Turn right onto Singel"
+              },
+              "weight": 17,
+              "duration": 17,
+              "name": "Singel",
+              "distance": 48.5
+            },
+            {
+              "intersections": [
+                {
+                  "out": 2,
+                  "in": 3,
+                  "entry": [true, true, true, false],
+                  "bearings": [75, 135, 240, 315],
+                  "location": [6.149759, 52.257622]
+                },
+                {
+                  "out": 2,
+                  "in": 0,
+                  "entry": [false, true, true],
+                  "bearings": [60, 135, 225],
+                  "location": [6.14707, 52.256198]
+                },
+                {
+                  "out": 2,
+                  "in": 0,
+                  "entry": [false, true, true],
+                  "bearings": [45, 75, 210],
+                  "location": [6.141968, 52.252725]
+                }
+              ],
+              "driving_side": "right",
+              "geometry": {
+                "coordinates": [
+                  [6.149759, 52.257622],
+                  [6.149241, 52.257448],
+                  [6.148767, 52.257186],
+                  [6.148001, 52.25674],
+                  [6.147373, 52.256343],
+                  [6.147239, 52.256263],
+                  [6.147118, 52.256226],
+                  [6.14707, 52.256198],
+                  [6.146945, 52.25611],
+                  [6.146665, 52.25592],
+                  [6.146558, 52.25583],
+                  [6.145623, 52.255195],
+                  [6.145451, 52.25509],
+                  [6.142106, 52.252807],
+                  [6.141968, 52.252725],
+                  [6.141933, 52.252699],
+                  [6.141895, 52.252631],
+                  [6.141711, 52.252501],
+                  [6.141489, 52.25233],
+                  [6.140857, 52.251876],
+                  [6.140039, 52.251287],
+                  [6.139285, 52.250662]
+                ],
+                "type": "LineString"
+              },
+              "mode": "cycling",
+              "maneuver": {
+                "bearing_after": 240,
+                "bearing_before": 137,
+                "location": [6.149759, 52.257622],
+                "modifier": "right",
+                "type": "turn",
+                "instruction": "Turn right onto Hovenpad"
+              },
+              "weight": 259.1,
+              "duration": 259.1,
+              "name": "Hovenpad",
+              "distance": 1057.2
+            },
+            {
+              "intersections": [
+                {
+                  "out": 1,
+                  "in": 0,
+                  "entry": [false, true, true],
+                  "bearings": [30, 150, 225],
+                  "location": [6.139285, 52.250662]
+                },
+                {
+                  "out": 1,
+                  "in": 2,
+                  "entry": [true, true, false],
+                  "bearings": [60, 165, 330],
+                  "location": [6.139346, 52.250604]
+                },
+                {
+                  "out": 0,
+                  "in": 2,
+                  "entry": [true, true, false],
+                  "bearings": [165, 225, 345],
+                  "location": [6.139576, 52.250129]
+                },
+                {
+                  "out": 1,
+                  "in": 2,
+                  "entry": [true, true, false],
+                  "bearings": [75, 165, 345],
+                  "location": [6.139692, 52.249873]
+                },
+                {
+                  "out": 1,
+                  "in": 2,
+                  "entry": [true, true, false],
+                  "bearings": [75, 165, 345],
+                  "location": [6.139958, 52.249349]
+                },
+                {
+                  "out": 1,
+                  "in": 2,
+                  "entry": [true, true, false],
+                  "bearings": [75, 165, 345],
+                  "location": [6.140186, 52.248802]
+                }
+              ],
+              "driving_side": "right",
+              "geometry": {
+                "coordinates": [
+                  [6.139285, 52.250662],
+                  [6.139312, 52.250635],
+                  [6.139346, 52.250604],
+                  [6.139576, 52.250129],
+                  [6.139692, 52.249873],
+                  [6.139958, 52.249349],
+                  [6.139972, 52.249308],
+                  [6.140045, 52.24913],
+                  [6.140146, 52.248882],
+                  [6.140186, 52.248802],
+                  [6.14046, 52.248251]
+                ],
+                "type": "LineString"
+              },
+              "mode": "cycling",
+              "maneuver": {
+                "bearing_after": 146,
+                "bearing_before": 215,
+                "location": [6.139285, 52.250662],
+                "modifier": "left",
+                "type": "turn",
+                "instruction": "Turn left onto Leliestraat"
+              },
+              "weight": 75.5,
+              "duration": 108.30000000000001,
+              "name": "Leliestraat",
+              "distance": 280.2
+            },
+            {
+              "intersections": [
+                {
+                  "out": 0,
+                  "in": 3,
+                  "entry": [true, true, true, false],
+                  "bearings": [75, 165, 255, 345],
+                  "location": [6.14046, 52.248251]
+                }
+              ],
+              "driving_side": "right",
+              "geometry": {
+                "coordinates": [
+                  [6.14046, 52.248251],
+                  [6.140487, 52.248256]
+                ],
+                "type": "LineString"
+              },
+              "mode": "cycling",
+              "maneuver": {
+                "bearing_after": 73,
+                "bearing_before": 161,
+                "location": [6.14046, 52.248251],
+                "modifier": "left",
+                "type": "turn",
+                "instruction": "Turn left onto Vonderstraat"
+              },
+              "weight": 0.4,
+              "duration": 0.6,
+              "name": "Vonderstraat",
+              "distance": 1.9
+            },
+            {
+              "intersections": [
+                {
+                  "in": 0,
+                  "entry": [true],
+                  "bearings": [253],
+                  "location": [6.140487, 52.248256]
+                }
+              ],
+              "driving_side": "right",
+              "geometry": {
+                "coordinates": [
+                  [6.140487, 52.248256],
+                  [6.140487, 52.248256]
+                ],
+                "type": "LineString"
+              },
+              "mode": "cycling",
+              "maneuver": {
+                "bearing_after": 0,
+                "bearing_before": 73,
+                "location": [6.140487, 52.248256],
+                "type": "arrive",
+                "instruction": "You have arrived at your destination"
+              },
+              "weight": 0,
+              "duration": 0,
+              "name": "Vonderstraat",
+              "distance": 0
+            }
+          ],
+          "distance": 2686.2
+        }
+      ],
+      "weight_name": "cyclability",
+      "weight": 694.5,
+      "duration": 766.8,
+      "distance": 2686.2
+    }
+  ],
+  "waypoints": [
+    {
+      "distance": 0.5221645581283542,
+      "name": "Smyrnastraat",
+      "location": [6.164048, 52.26136]
+    },
+    {
+      "distance": 0.805432964049201,
+      "name": "Vonderstraat",
+      "location": [6.140487, 52.248256]
+    }
+  ],
+  "code": "Ok",
+  "uuid": "hADQxmKdCdn6qKzPm3CYTKVlL0mtZZm2lkc1gpzlFAAfxlXgbckOgA=="
+}

@@ -1,13 +1,15 @@
 const { app, BrowserWindow, session } = require('electron');
+var events = require('events');
+var eventEmitter = new events.EventEmitter();
 
 function createWindow() {
   // Create the browser window.
   let win = new BrowserWindow({
-    width: 800,
-    height: 600,
+    width: 240,
+    height: 320,
     webPreferences: {
-      nodeIntegration: true
-    }
+      nodeIntegration: true,
+    },
   });
 
   // and load the index.html of the app.
@@ -24,8 +26,12 @@ function setSecurityPolicy() {
     callback({
       responseHeaders: {
         ...details.responseHeaders,
-        'Content-Security-Policy': '*'
-      }
+        'Content-Security-Policy': '*',
+      },
     });
   });
 }
+
+eventEmitter.on('connectEvent', () => {
+  console.log('connect even recent from main.js');
+});
