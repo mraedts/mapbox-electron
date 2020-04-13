@@ -13,7 +13,7 @@
       rel="stylesheet"
     />
 
-    <script src="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-directions/v4.0.2/mapbox-gl-directions.js"></script>
+    <!-- <script src="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-directions/v4.0.2/mapbox-gl-directions.js"></script> -->
     <link
       rel="stylesheet"
       href="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-directions/v4.0.2/mapbox-gl-directions.css"
@@ -37,11 +37,12 @@
   <body>
     <div id="map"></div>
     <script>
+      const MapboxDirections = require('@mapbox/mapbox-gl-directions');
       const style = require('./minimal.json');
       var guidanceGeoJSON = require('guidance-geojson');
       const mapboxgl = require('mapboxgljs-custom-geolocation');
       var simulate = require('guidance-sim').simulate;
-      const simConfig = require('./config.json');
+      // const simConfig = require('./config.json');
       const directionsResponse = require('./directionresponse.json');
       const GeolocationManager = require('./geolocationmanager.js');
 
@@ -67,21 +68,26 @@
 
       map.addControl(geolocationControl);
 
-      const geolocationManager = new GeolocationManager(geolocationControl);
-
-      a = new MapboxDirections({
+      mapBoxDirections = new MapboxDirections({
         accessToken: mapboxgl.accessToken,
         unit: 'metric',
         profile: 'mapbox/cycling',
       });
-      map.addControl(a, 'top-left');
 
-      map.on('style.load', function () {
+      const geolocationManager = new GeolocationManager(
+        geolocationControl,
+        mapBoxDirections,
+        map
+      );
+      map.addControl(mapBoxDirections, 'top-left');
+
+      /* map.on('style.load', function () {
         var route = guidanceGeoJSON(directionsResponse);
         // Restores style layers and adjusts dynamically to style `route` GeoJSON
         var response = simulate(map, simConfig);
         // guidanceGeoJSON.styleRoute(mapboxgl, map, route);
       });
+      */
       // code from the next step will go here
     </script>
   </body>

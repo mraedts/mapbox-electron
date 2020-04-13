@@ -5,8 +5,8 @@ var eventEmitter = new events.EventEmitter();
 function createWindow() {
   // Create the browser window.
   let win = new BrowserWindow({
-    width: 240,
-    height: 320,
+    width: 800,
+    height: 600,
     webPreferences: {
       nodeIntegration: true,
     },

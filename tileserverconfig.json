@@ -1,0 +1,37 @@
+{
+  "options": {
+    "paths": {
+      "root": "",
+      "fonts": "fonts",
+
+      "styles": "mapbox-styles",
+      "mbtiles": "mbtiles"
+    },
+    "domains": ["localhost:8080", "127.0.0.1:8080"],
+    "formatQuality": {
+      "jpeg": 80,
+      "webp": 90
+    },
+    "maxScaleFactor": 3,
+    "maxSize": 2048,
+    "pbfAlias": "pbf",
+    "serveAllFonts": true,
+    "serveAllStyles": true,
+    "serveStaticMaps": true,
+    "tileMargin": 0
+  },
+  "styles": {
+    "basic": {
+      "style": "style.json",
+      "serve_rendered": true,
+      "tilejson": {
+        "format": "jpg"
+      }
+    }
+  },
+  "data": {
+    "basic": {
+      "mbtiles": "planet.mbtiles"
+    }
+  }
+}

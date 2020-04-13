@@ -22,7 +22,9 @@
     "mapbox-gl": "^1.9.1",
     "mapboxgljs-custom-geolocation": "git+https://git@github.com/mraedts/mapboxjs-custom-geolocation.git",
     "socket.io-client": "^2.3.0",
+    "sqlite3": "^4.1.1",
     "temp": "^0.9.1",
-    "tilelive": "^5.12.3"
+    "tilelive": "^5.12.3",
+    "tileserver-gl": "^3.0.0"
   }
 }
