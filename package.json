@@ -21,6 +21,7 @@
     "http": "0.0.1-security",
     "mapbox-gl": "^1.9.1",
     "mapboxgljs-custom-geolocation": "git+https://git@github.com/mraedts/mapboxjs-custom-geolocation.git",
+    "socket.io": "^2.3.0",
     "socket.io-client": "^2.3.0",
     "sqlite3": "^4.1.1",
     "temp": "^0.9.1",

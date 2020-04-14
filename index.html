@@ -42,10 +42,10 @@
       var guidanceGeoJSON = require('guidance-geojson');
       const mapboxgl = require('mapboxgljs-custom-geolocation');
       var simulate = require('guidance-sim').simulate;
-      // const simConfig = require('./config.json');
+      const simConfig = require('./guidancesimconfig.json');
       const directionsResponse = require('./directionresponse.json');
-      const GeolocationManager = require('./geolocationmanager.js');
-
+      const GeolocationManager = require('./GeolocationManager.js');
+      const DirectionsManager = require('./DirectionsManager');
       mapboxgl.accessToken =
         'pk.eyJ1IjoiZS1kdHMiLCJhIjoiY2s4anhkdWVwMGZkMzNncDluMmJwbHZxMiJ9.kqz8QzRDGPOnoUEKxFCZKA'; // replace this with your access token
 
@@ -77,14 +77,21 @@
       const geolocationManager = new GeolocationManager(
         geolocationControl,
         mapBoxDirections,
-        map
+        map,
+        document
       );
       map.addControl(mapBoxDirections, 'top-left');
+      //simulate(map, simConfig, 'v5', geolocationManager);
+
+      const directionsManager = new DirectionsManager(
+        geolocationManager,
+        document
+      );
 
       /* map.on('style.load', function () {
         var route = guidanceGeoJSON(directionsResponse);
         // Restores style layers and adjusts dynamically to style `route` GeoJSON
-        var response = simulate(map, simConfig);
+        
         // guidanceGeoJSON.styleRoute(mapboxgl, map, route);
       });
       */
