@@ -44,6 +44,8 @@ class GeolocationManager {
     this.geolocateControl = geolocateControl;
     this.mapBoxDirections = mapBoxDirections;
     this.document = document;
+    this.notifyDirectionsFuncs = [];
+
     this.instructionSteps;
     this.nextStepIndex = 1;
     this.map = map;
@@ -86,6 +88,7 @@ class GeolocationManager {
 
     this.socket.on('directions', (data) => {
       //set destination and origin
+
       console.log(data);
       mapBoxDirections.setDirectionsFromBle(data);
       this.applyToMap(data);
@@ -93,6 +96,10 @@ class GeolocationManager {
       this.instructionSteps = this.document.querySelectorAll(
         '.mapbox-directions-step'
       );
+
+      if (directionsManager != undefined) {
+        directionsManager.setSteps(this.instructionSteps);
+      }
     });
   }
 

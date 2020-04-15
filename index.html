@@ -19,23 +19,15 @@
       href="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-directions/v4.0.2/mapbox-gl-directions.css"
       type="text/css"
     />
-
-    <style>
-      body {
-        margin: 0;
-        padding: 0;
-      }
-
-      #map {
-        position: absolute;
-        top: 0;
-        bottom: 0;
-        width: 100%;
-      }
-    </style>
+    <link rel="stylesheet" href="style.css" type="text/css" />
   </head>
   <body>
     <div id="map"></div>
+    <div id="asdf-container">
+      <input type="image" src="./images/up.png" id="upbutton" />
+      <input type="image" src="./images/down.png" id="downbutton" />
+    </div>
+
     <script>
       const MapboxDirections = require('@mapbox/mapbox-gl-directions');
       const style = require('./minimal.json');
@@ -81,7 +73,7 @@
         document
       );
       map.addControl(mapBoxDirections, 'top-left');
-      //simulate(map, simConfig, 'v5', geolocationManager);
+      simulate(map, simConfig, 'v5', geolocationManager);
 
       const directionsManager = new DirectionsManager(
         geolocationManager,

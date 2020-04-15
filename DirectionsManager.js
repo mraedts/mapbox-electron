@@ -1,45 +1,71 @@
+var events = require('events');
+
+// @TODO
+//          -render icons/dots at step locations
+//
+
 class DirectionsManager {
   constructor(geolocationManager, document) {
     this.geolocationManager = geolocationManager;
     this.stepElements = document.querySelectorAll('.mapbox-directions-step');
-
     this.position;
     this.stepHeights = [];
-    this.nextStepIndex = 1;
+    this.nextStepIndex = 0;
     this.arrivedAtNextStep = false;
+    this.setupStepButtons();
+
     setInterval(() => this.getDistanceToNextStep(this), 500);
   }
 
-  scrollToStep(index) {
-    this.stepElements[0].parentNode.parentNode.parentNode.scrollBy({
-      top: this.stepHeights[index] + 10,
+  setupStepButtons() {
+    const upButton = document.querySelector('#upbutton');
+    const downButton = document.querySelector('#downbutton');
+    const context = this;
+
+    upButton.addEventListener('click', () => {
+      if (context.nextStepIndex <= 0) return;
+      context.nextStepIndex--;
+      this.scrollToStep(this.nextStepIndex, context);
+      this.arrivedAtNextStep = false;
+    });
+    downButton.addEventListener('click', () => {
+      if (context.nextStepIndex >= context.stepElements.length - 1) return;
+      context.nextStepIndex++;
+      this.scrollToStep(this.nextStepIndex, context);
+      this.arrivedAtNextStep = false;
+    });
+  }
+
+  getStepHeights() {
+    const { stepElements, stepHeights } = this;
+    stepElements.forEach((step) => {
+      stepHeights.push(step.clientHeight);
+    });
+  }
+
+  setSteps(steps) {
+    this.stepElements = steps;
+    this.getStepHeights();
+  }
+
+  getScrollHeight(i, context) {
+    let scrollHeight = 0;
+    for (let n = 0; n < i; n++) {
+      scrollHeight = scrollHeight + context.stepHeights[n];
+    }
+    return scrollHeight + 10;
+    // this.stepElements[0].parentNode.parentNode.parentNode.scrollTop
+  }
+
+  scrollToStep(i, context) {
+    context.stepElements[0].parentNode.parentNode.parentNode.scroll({
+      top: context.getScrollHeight(i, context),
       left: 0,
       behavior: 'smooth',
     });
   }
 
-  createStepHeightArray(that) {
-    if (that == undefined) {
-      const stepElements = this.stepElements;
-      const stepHeights = this.stepElements;
-    } else {
-    }
-
-    const stepElements = that.stepElements;
-    const stepHeights = that.stepElements;
-
-    if (stepElements == undefined) return;
-    if (stepElements.length == 0) return;
-    for (let i = 0; i < stepElements; i++) {
-      let previousTotalHeight = 0;
-      for (let n = 0; n < i; n++) {
-        previousTotalHeight = previousTotalHeight + stepElements[n];
-      }
-      stepHeights.push(previousTotalHeight);
-    }
-  }
-
-  getDistanceToNextStep(that) {
+  getDistanceToNextStep(context) {
     const {
       geolocationManager,
       stepElements,
@@ -47,47 +73,54 @@ class DirectionsManager {
       getDistance,
       updateStepElements,
       distanceString,
-    } = that;
+      checkIfStepIsPassed,
+    } = context;
 
     if (stepElements.length == 0) {
-      updateStepElements(that);
-      that.createStepHeightArray(that);
+      // updateStepElements(context);
     }
+
+    console.log(nextStepIndex);
+    console.log(stepElements);
+
     const nextStep = stepElements[nextStepIndex];
     const stepLongitude = nextStep.dataset.lng;
     const stepLatitude = nextStep.dataset.lat;
     const currentPosition = geolocationManager.getPosition();
+    if (currentPosition == undefined) return;
     // console.log(currentPosition);
     const distance = getDistance(
       currentPosition.coords.latitude,
       currentPosition.coords.longitude,
       stepLatitude,
       stepLongitude,
-      that
+      context
     );
-    console.log(nextStep);
-    console.log(nextStep.querySelector('.mapbox-directions-step-distance'));
+    //console.log(nextStep);
+    //console.log(nextStep.querySelector('.mapbox-directions-step-distance'));
     nextStep.querySelector(
       '.mapbox-directions-step-distance'
     ).textContent = `${distanceString(distance)}`;
-    this.checkIfStepIsPassed(distance, that);
+    checkIfStepIsPassed(distance, context);
   }
 
-  checkIfStepIsPassed(distance, that) {
+  checkIfStepIsPassed(distance, context) {
+    const { arrivedAtNextStep, nextStepIndex } = context;
     // convert distance to m
     distance = distance * 1000;
-    if (distance < 20) {
-      that.arrivedAtNextStep = true;
+    if (distance < 17.5) {
+      context.arrivedAtNextStep = true;
     }
 
-    if (that.arrivedAtNextStep == true && distance > 45) {
-      that.nextStepIndex++;
-      that.arrivedAtNextStep = false;
+    if (arrivedAtNextStep == true && distance > 22.5) {
+      context.nextStepIndex++;
+      context.scrollToStep(nextStepIndex + 1, context);
+      context.arrivedAtNextStep = false;
     }
   }
 
-  updateStepElements(that) {
-    that.stepElements = document.querySelectorAll('.mapbox-directions-step');
+  updateStepElements(context) {
+    context.stepElements = document.querySelectorAll('.mapbox-directions-step');
   }
 
   setPosition(position) {
@@ -102,8 +135,8 @@ class DirectionsManager {
     return m.toFixed(0) + 'm';
   }
 
-  getDistance(lat1, lon1, lat2, lon2, that) {
-    const { deg2rad } = that;
+  getDistance(lat1, lon1, lat2, lon2, context) {
+    const { deg2rad } = context;
     // Returns distance in kilometers
     var R = 6371; // Radius of the earth in km
     var dLat = deg2rad(lat2 - lat1); // deg2rad below
