@@ -1,7 +1,7 @@
 var events = require('events');
 
 // @TODO
-//          -render icons/dots at step locations
+//          - render icons/dots at step locations, (example in index.html)
 //
 
 class DirectionsManager {
@@ -17,6 +17,37 @@ class DirectionsManager {
     setInterval(() => this.getDistanceToNextStep(this), 500);
   }
 
+  renderStepPoints() {
+    let i = 0;
+
+    this.stepElements.forEach((step) => {
+      map.addSource('point' + i, {
+        type: 'geojson',
+        data: {
+          type: 'Point',
+          coordinates: [step.dataset.lng, step.dataset.lat],
+        },
+      });
+      map.addLayer({
+        id: 'point' + i,
+        source: 'point' + i,
+        type: 'circle',
+        paint: {
+          'circle-radius': 3,
+          'circle-color': '#FFFFFF',
+        },
+      });
+      i++;
+    });
+  }
+
+  renderCurrentStepPoint(previousIndex, context) {
+    if (!context) context = this;
+
+    map.setPaintProperty('point' + previousIndex, 'circle-radius', 3);
+    map.setPaintProperty('point' + context.nextStepIndex, 'circle-radius', 5);
+  }
+
   setupStepButtons() {
     const upButton = document.querySelector('#upbutton');
     const downButton = document.querySelector('#downbutton');
@@ -24,13 +55,17 @@ class DirectionsManager {
 
     upButton.addEventListener('click', () => {
       if (context.nextStepIndex <= 0) return;
+      const currentIndex = context.nextStepIndex;
       context.nextStepIndex--;
+      this.renderCurrentStepPoint(currentIndex);
       this.scrollToStep(this.nextStepIndex, context);
       this.arrivedAtNextStep = false;
     });
     downButton.addEventListener('click', () => {
       if (context.nextStepIndex >= context.stepElements.length - 1) return;
+      const currentIndex = context.nextStepIndex;
       context.nextStepIndex++;
+      this.renderCurrentStepPoint(currentIndex);
       this.scrollToStep(this.nextStepIndex, context);
       this.arrivedAtNextStep = false;
     });
@@ -46,6 +81,7 @@ class DirectionsManager {
   setSteps(steps) {
     this.stepElements = steps;
     this.getStepHeights();
+    this.renderStepPoints();
   }
 
   getScrollHeight(i, context) {
@@ -77,11 +113,8 @@ class DirectionsManager {
     } = context;
 
     if (stepElements.length == 0) {
-      // updateStepElements(context);
+      return;
     }
-
-    console.log(nextStepIndex);
-    console.log(stepElements);
 
     const nextStep = stepElements[nextStepIndex];
     const stepLongitude = nextStep.dataset.lng;
@@ -113,7 +146,9 @@ class DirectionsManager {
     }
 
     if (arrivedAtNextStep == true && distance > 22.5) {
+      const currentIndex = context.nextStepIndex;
       context.nextStepIndex++;
+      context.renderCurrentStepPoint(currentIndex, context);
       context.scrollToStep(nextStepIndex + 1, context);
       context.arrivedAtNextStep = false;
     }

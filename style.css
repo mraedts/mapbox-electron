@@ -24,3 +24,16 @@ body {
   display: block;
   width: 60px;
 }
+
+.mapbox-directions-component-keyline {
+  display: none;
+}
+
+::-webkit-scrollbar {
+  display: none; /* Chrome Safari */
+}
+
+.directions-control.directions-control {
+  width: 90%;
+  max-width: 100%;
+}

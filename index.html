@@ -47,7 +47,7 @@
       var map = new mapboxgl.Map({
         container: 'map',
         style: guidanceGeoJSON.stylePrep(style, 'route'), // replace this with your style URL
-        center: [4.9667, 52.3437],
+        center: [6.146182, 52.2618],
         zoom: 10.7,
       });
 
@@ -80,13 +80,32 @@
         document
       );
 
-      /* map.on('style.load', function () {
-        var route = guidanceGeoJSON(directionsResponse);
-        // Restores style layers and adjusts dynamically to style `route` GeoJSON
-        
-        // guidanceGeoJSON.styleRoute(mapboxgl, map, route);
+      function pointOnCircle(angle) {
+        return {
+          type: 'Point',
+          coordinates: [6.146182, 52.2618],
+        };
+      }
+
+      /*
+      map.on('style.load', function () {
+        map.addSource('point', {
+          type: 'geojson',
+          data: pointOnCircle(),
+        });
+      });
+
+      map.addLayer({
+        id: 'point',
+        source: 'point',
+        type: 'circle',
+        paint: {
+          'circle-radius': 5,
+          'circle-color': '#05c101',
+        },
       });
       */
+
       // code from the next step will go here
     </script>
   </body>
