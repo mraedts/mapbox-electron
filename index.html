@@ -8,18 +8,9 @@
       content="initial-scale=1,maximum-scale=1,user-scalable=no"
     />
     <!-- <script src="https://api.tiles.mapbox.com/mapbox-gl-js/v1.8.1/mapbox-gl.js"></script> -->
-    <link
-      href="https://api.tiles.mapbox.com/mapbox-gl-js/v1.8.1/mapbox-gl.css"
-      rel="stylesheet"
-    />
-
-    <!-- <script src="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-directions/v4.0.2/mapbox-gl-directions.js"></script> -->
-    <link
-      rel="stylesheet"
-      href="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-directions/v4.0.2/mapbox-gl-directions.css"
-      type="text/css"
-    />
-    <link rel="stylesheet" href="style.css" type="text/css" />
+    <link href="styles/mapbox-gl-js.css" rel="stylesheet" type="text/css" />
+    <link href="styles/directions.css" type="text/css" rel="stylesheet" />
+    <link rel="stylesheet" href="styles/style.css" type="text/css" />
   </head>
   <body>
     <div id="map"></div>
@@ -30,7 +21,7 @@
 
     <script>
       const MapboxDirections = require('@mapbox/mapbox-gl-directions');
-      const style = require('./minimal.json');
+      const style = require('./style.json');
       var guidanceGeoJSON = require('guidance-geojson');
       const mapboxgl = require('mapboxgljs-custom-geolocation');
       var simulate = require('guidance-sim').simulate;
@@ -41,12 +32,9 @@
       mapboxgl.accessToken =
         'pk.eyJ1IjoiZS1kdHMiLCJhIjoiY2s4anhkdWVwMGZkMzNncDluMmJwbHZxMiJ9.kqz8QzRDGPOnoUEKxFCZKA'; // replace this with your access token
 
-      mapboxgl.workerCount = 1;
-      mapboxgl.maxParallelImageRequests = 1;
-
       var map = new mapboxgl.Map({
         container: 'map',
-        style: guidanceGeoJSON.stylePrep(style, 'route'), // replace this with your style URL
+        style: style, // replace this with your style URL
         center: [6.146182, 52.2618],
         zoom: 10.7,
       });
@@ -72,20 +60,13 @@
         map,
         document
       );
-      map.addControl(mapBoxDirections, 'top-left');
-      simulate(map, simConfig, 'v5', geolocationManager);
+      map.addControl(mapBoxDirections, 'bottom-right');
+      // simulate(map, simConfig, 'v5', geolocationManager);
 
       const directionsManager = new DirectionsManager(
         geolocationManager,
         document
       );
-
-      function pointOnCircle(angle) {
-        return {
-          type: 'Point',
-          coordinates: [6.146182, 52.2618],
-        };
-      }
 
       /*
       map.on('style.load', function () {

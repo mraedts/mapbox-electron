@@ -34,11 +34,10 @@ body {
 }
 
 .directions-control.directions-control {
-  width: 90%;
+  width: 100%;
   max-width: 100%;
 }
 
-.mapbox-ctrl-bottom-right,
-.mapbox-ctrl {
-  margin-right: -47px;
+.mapboxgl-ctrl-icon {
+  display: none;
 }

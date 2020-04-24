@@ -21122,7 +21122,7 @@
   "pitch": 60,
   "time": "00m00s",
   "spacing": "acceldecel",
-  "speed": "1x",
+  "speed": "3x",
   "maneuvers": [
     {
       "type": ["depart", "arrive"],

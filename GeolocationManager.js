@@ -54,7 +54,7 @@ class GeolocationManager {
   }
 
   initSocketConn() {
-    this.socket = io('http://192.168.3.29:3060');
+    this.socket = io('http://localhost:3060');
     this.socket.on('connect', function () {
       console.log('connected to socket.io from within GeolocManager');
     });
